@@ -90,6 +90,7 @@ def adapted_dictionary(value):
         u'Торги скасовано': 'cancelled',
         u'Аукціон відмінено': 'cancelled',
         u'Квалiфiкацiя переможця': 'active.qualification',
+        u'Прийняття заяв на участь': 'active.qualification',
         u'Очікується опублікування протоколу': 'active.qualification',
         u'Очікується рішення': 'pending.waiting',
         u'Очікується протокол': 'pending',
