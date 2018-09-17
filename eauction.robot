@@ -736,9 +736,13 @@ ${host}  http://eauction-dev.byustudio.in.ua
     Перейти на сторінку кваліфікації
     Wait Until Element Is Visible  xpath=//button[contains(text(), "Опублікувати рішення про викуп")]
     Click Element  xpath=//button[contains(text(), "Опублікувати рішення про викуп")]
-    Wait Until Element Is Visible  xpath=//div[contains(text(), "Опублікувати рішення про викуп")]
+    Wait Until Element Is Visible  xpath=//button[contains(@class, "mk-btn mk-btn_default")][contains(text(), "Завнтажити рішення")]
     Choose File  xpath=//div[@id="admission-form-upload-file"]/descendant::input[@name="FileUpload[file][]"]  ${file_path}
     Wait Until Element Is Visible  xpath=//button[contains(@class, "delete-file-verification")]
+    Click Element  xpath=//button[contains(@class, "mk-btn mk-btn_default")][contains(text(), "Завнтажити рішення")]
+    Wait Until Keyword Succeeds  30 x  20 s  Run Keywords
+    ...  Reload Page
+    ...  AND  Page Should Not Contain Element  xpath=//p[contains(@class, "text-center")][contains(text(), "Файли завантажуються")]
 
 
 Активувати кваліфікацію учасника
