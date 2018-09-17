@@ -1014,7 +1014,7 @@ JQuery Ajax Should Complete
     Choose File  xpath=//input[contains(@id,"ajax-upload-id")]  ${file_path}
     Select From List By Label  xpath=//select[@id="document-0-documenttype"]  Наказ про приватизацію
     ${date_nakaz}  convert_date_for_date_paid  ${dateMet}
-    Input Date Auction  xpath=//input[@name="Milestone[dateMet]"]  ${date_nakaz}
+    Input Text  xpath=//input[@name="Milestone[dateMet]"]  ${date_nakaz}
     Click Element  xpath=//button[@class="mk-btn mk-btn_accept"]
     Wait Until Element Is Not Visible  xpath=//*[contains(@class, "modal-backdrop")]
     Wait Until Keyword Succeeds  30 x  10 s  Run Keywords
