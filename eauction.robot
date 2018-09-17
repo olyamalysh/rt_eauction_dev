@@ -937,8 +937,9 @@ JQuery Ajax Should Complete
     Click Element  xpath=//*[@id="h-menu"]/descendant::a[contains(@href, "contracting")]
     Wait Until Element Is Visible  xpath=//button[contains(text(), "Шукати")]
     Input Text  id=contractingsearch-contract_cbd_id  ${contract_uaid}
+    Click Element  xpath=//button[contains(text(), "Шукати")]
     Wait Until Keyword Succeeds  10 x  1 s  Wait Until Element Is Visible  xpath=//div[@class="search-result"]/descendant::div[contains(text(), "${contract_uaid}")]
-    Wait Until Keyword Succeeds  20 x  3 s  Run Keywords
+    Run Keyword And Ignore Error  Wait Until Keyword Succeeds  20 x  3 s  Run Keywords
     ...  Click Element  xpath=//div[@class="search-result"]/descendant::div[contains(text(), "${contract_uaid}")]/../../div[2]/a[contains(@href, "/contracting/view")]
     ...  AND  Wait Until Element Is Not Visible  xpath=//button[contains(text(), "Шукати")]  10
     Закрити Модалку
