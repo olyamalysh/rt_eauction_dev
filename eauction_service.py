@@ -57,6 +57,11 @@ def convert_date_for_auction(date):
     return '{}'.format(date)
 
 
+def convert_date_for_milestone():
+    date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S'.format(tz)).strftime('%d.%m.%Y %H:%M')
+    return '{}'.format(date)
+
+
 def convert_date_from_decision(date):
     date = datetime.strptime(date, '%d/%m/%Y'.format(tz)).strftime('%Y-%m-%dT%H:%M:%S.%f')
     return '{}{}'.format(date, tz)

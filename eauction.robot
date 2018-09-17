@@ -877,6 +877,13 @@ Input Amount
     Input Text  ${locator}  ${value}
 
 
+Input Date Milestone
+    Arguments]  ${locator}  ${value}
+    ${value}=  convert_date_for_milestone  ${value}
+    Clear Element Text  ${locator}
+    Input Text  ${locator}  ${value}
+
+
 Input Date Auction
     [Arguments]  ${locator}  ${value}
     ${value}=  convert_date_for_auction  ${value}
@@ -967,7 +974,7 @@ JQuery Ajax Should Complete
     Wait Until Keyword Succeeds  10 x  1 s  Wait Until Element Is Visible  xpath=//div[@class="h2 text-center"][contains(text(), "Оплата договору")]
     Click Element  xpath=//select[@id="milestone-status"]
     ${date_paid}=  convert_date_for_date_paid  ${dateMet}
-    Input Date Auction  xpath=//input[@name="Milestone[dateMet]"]  ${date_paid}
+    Input Date Milestone  xpath=//input[@name="Milestone[dateMet]"]  ${date_paid}
     Click Element  xpath=//button[@class="mk-btn mk-btn_accept"][contains(text(),"Завантажити дані")]
     Wait Until Element Is Not Visible  xpath=//*[contains(@class, "modal-backdrop")]
 
