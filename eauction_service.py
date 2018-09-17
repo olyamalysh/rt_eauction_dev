@@ -48,7 +48,7 @@ def convert_date_for_item(date):
 
 
 def convert_date_for_date_paid(date):
-    date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f{}'.format(tz)).strftime('%d.%m.%Y %H:%M')
+    date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S{}'.format(tz)).strftime('%d.%m.%Y %H:%M')
     return '{}'.format(date)
 
 
