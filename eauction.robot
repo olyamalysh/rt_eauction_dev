@@ -1056,7 +1056,9 @@ JQuery Ajax Should Complete
     #Input Date Auction  xpath=//input[@name="Milestone[dateMet]"]  ${dateMet}
     Click Element  xpath=//button[@class="mk-btn mk-btn_accept"][contains(text(),"Завантажити дані")]
     Wait Until Element Is Not Visible  xpath=//*[contains(@class, "modal-backdrop")]
-    eauction.Пошук договору по ідентифікатору  ${username}  ${contract_uaid}
+    Wait Until Keyword Succeeds  30 x  10 s  Run Keywords
+    ...  Reload Page
+    ...  AND  Wait Until Page Does Not Contain   Документ завантажується...  10
 
 
 Підтвердити невиконання умов приватизації
