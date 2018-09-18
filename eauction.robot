@@ -732,7 +732,7 @@ ${host}  http://eauction-dev.byustudio.in.ua
 
 Завантажити протокол погодження в авард
     [Arguments]  ${username}  ${tender_uaid}  ${file_path}  ${award_index}
-    uace.Пошук Тендера По Ідентифікатору  ${username}  ${tender_uaid}
+    eauction.Пошук Тендера По Ідентифікатору  ${username}  ${tender_uaid}
     Перейти на сторінку кваліфікації
     Wait Until Element Is Visible  xpath=//button[contains(text(), "Опублікувати рішення про викуп")]
     Click Element  xpath=//button[contains(text(), "Опублікувати рішення про викуп")]
