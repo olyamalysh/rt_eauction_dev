@@ -732,26 +732,18 @@ ${host}  http://eauction-dev.byustudio.in.ua
 
 Завантажити протокол погодження в авард
     [Arguments]  ${username}  ${tender_uaid}  ${file_path}  ${award_index}
-    eauction.Пошук Тендера По Ідентифікатору  ${username}  ${tender_uaid}
+    uace.Пошук Тендера По Ідентифікатору  ${username}  ${tender_uaid}
     Перейти на сторінку кваліфікації
     Wait Until Element Is Visible  xpath=//button[contains(text(), "Опублікувати рішення про викуп")]
     Click Element  xpath=//button[contains(text(), "Опублікувати рішення про викуп")]
-    Wait Until Element Is Visible  xpath=//button[contains(@class, "mk-btn mk-btn_default")][contains(text(), "Завнтажити рішення")]
+    Wait Until Element Is Visible  xpath=//div[contains(text(), "Опублікувати рішення про викуп")]
     Choose File  xpath=//div[@id="admission-form-upload-file"]/descendant::input[@name="FileUpload[file][]"]  ${file_path}
     Wait Until Element Is Visible  xpath=//button[contains(@class, "delete-file-verification")]
-    Click Element  xpath=//button[contains(@class, "mk-btn mk-btn_default")][contains(text(), "Завнтажити рішення")]
-    Wait Until Keyword Succeeds  30 x  20 s  Run Keywords
-    ...  Reload Page
-    ...  AND  Page Should Not Contain Element  xpath=//p[contains(@class, "text-center")][contains(text(), "Файли завантажуються")]
 
 
 Активувати кваліфікацію учасника
     [Arguments]  ${username}  ${tender_uaid}
-    eauction.Пошук Тендера По Ідентифікатору  ${username}  ${tender_uaid}
-    Перейти на сторінку кваліфікації
-    ${file_path}=   get_upload_file_path
-    Chose File  xpath=//*[@id="ajax-upload-id-1537258902759"]  ${file_path}
-    Click Element  xpath=//button[contains(@class, "mk-btn mk-btn_default")][contains(text(), "Завнтажити рішення")]
+    Click Element  xpath=//button[@name="admission"]
     Wait Until Element Is Not Visible  xpath=//button[@name="admission"]
     Wait Until Keyword Succeeds  30 x  20 s  Run Keywords
     ...  Reload Page
