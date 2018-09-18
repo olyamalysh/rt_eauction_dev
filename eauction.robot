@@ -747,7 +747,11 @@ ${host}  http://eauction-dev.byustudio.in.ua
 
 Активувати кваліфікацію учасника
     [Arguments]  ${username}  ${tender_uaid}
-    Click Element  xpath=//button[@name="admission"]
+    eauction.Пошук Тендера По Ідентифікатору  ${username}  ${tender_uaid}
+    Перейти на сторінку кваліфікації
+    ${file_path}=   get_upload_file_path
+    Chose File  xpath=//*[@id="ajax-upload-id-1537258902759"]  ${file_path}
+    Click Element  xpath=//button[contains(@class, "mk-btn mk-btn_default")][contains(text(), "Завнтажити рішення")]
     Wait Until Element Is Not Visible  xpath=//button[@name="admission"]
     Wait Until Keyword Succeeds  30 x  20 s  Run Keywords
     ...  Reload Page
