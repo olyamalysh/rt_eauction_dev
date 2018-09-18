@@ -1045,7 +1045,16 @@ JQuery Ajax Should Complete
     [Arguments]  ${username}  ${contract_uaid}  ${dateMet}
     eauction.Пошук договору по ідентифікатору  ${username}  ${contract_uaid}
     Click Element  xpath=//button[contains(text(), 'Виконання умов продажу')]
-    Input Date Auction  xpath=//input[@name="Milestone[dateMet]"]  ${dateMet}
+    Click Element  xpath=//div[contains(text(), 'Додати документ')]
+    ${file_path}=   get_upload_file_path
+    Choose File  xpath=//input[contains(@id,"ajax-upload-id")]  ${file_path}
+    Wait Until Page Contains Element  //select[@id="document-0-documenttype"] /option[contains(text(),"registerExtract")]
+    Select From List By Label  xpath=//select[@id="document-0-documenttype"]  registerExtract
+    ${date_paid}=  convert_date_for_date_paid  ${dateMet}
+    Input Text  xpath=//input[@name="Milestone[dateMet]"]  ${date_paid}
+    #Input Date Auction  xpath=//input[@name="Milestone[dateMet]"]  ${dateMet}
+    Click Element  xpath=//button[@class="mk-btn mk-btn_accept"][contains(text(),"Завантажити дані")]
+    Wait Until Element Is Not Visible  xpath=//*[contains(@class, "modal-backdrop")]
 
 
 Підтвердити невиконання умов приватизації
