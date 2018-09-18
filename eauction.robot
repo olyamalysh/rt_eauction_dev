@@ -1045,6 +1045,7 @@ JQuery Ajax Should Complete
     [Arguments]  ${username}  ${contract_uaid}  ${dateMet}
     eauction.Пошук договору по ідентифікатору  ${username}  ${contract_uaid}
     Click Element  xpath=//button[contains(text(), 'Виконання умов продажу')]
+    Wait Until Element Is Visible  xpath=//div[contains(text(), 'Додати документ')]
     Click Element  xpath=//div[contains(text(), 'Додати документ')]
     ${file_path}=   get_upload_file_path
     Choose File  xpath=//input[contains(@id,"ajax-upload-id")]  ${file_path}
