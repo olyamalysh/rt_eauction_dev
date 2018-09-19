@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from datetime import datetime
+from iso8601 import parse_date
 import pytz
 import urllib
 import re
@@ -50,8 +51,10 @@ def convert_date_for_item(date):
 
 
 def convert_date_for_date_paid(date):
-    date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f{}'.format(tz)).strftime('%d.%m.%Y %H:%M')
-    return '{}'.format(date)
+    #date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%f{}'.format(tz)).strftime('%d.%m.%Y %H:%M')
+    iso_dt = parse_date(date)
+    date_string = iso_dt.strftime("%d.%m.%Y %H:%M")
+    return date_string
 
 
 
