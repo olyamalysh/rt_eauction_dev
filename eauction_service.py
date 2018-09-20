@@ -133,7 +133,7 @@ def adapted_dictionary(value):
         u"Приватизація об'єкта завершена.": u'pending.terminated',
         u"Приватизація об'єкта неуспішна.": u'pending.unsuccessful',
         u"Приватизація об'єкта завершена": u'terminated',
-        u"Приватизація об'єкта неуспішна": u'unsuccessful'
+        u"Приватизація об’єкта неуспішна": u'unsuccessful'
     }.get(value, value)
 
 
