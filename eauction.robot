@@ -974,6 +974,7 @@ JQuery Ajax Should Complete
     Wait Until Keyword Succeeds  10 x  1 s  Wait Until Element Is Visible  xpath=//div[@class="h2 text-center"][contains(text(), "Оплата договору")]
     Click Element  xpath=//select[@id="milestone-status"]
     ${date_paid}=  convert_date_for_date_paid  ${dateMet}
+    Wait Element Animation  xpath=//input[@name="Milestone[dateMet]"]
     Input Text  xpath=//input[@name="Milestone[dateMet]"]  ${date_paid}
     Sleep  3
     Click Element  xpath=//button[@class="mk-btn mk-btn_accept"][contains(text(),"Завантажити дані")]
@@ -1078,3 +1079,16 @@ JQuery Ajax Should Complete
     Wait Until Keyword Succeeds  30 x  10 s  Run Keywords
     ...  Reload Page
     ...  AND  Wait Until Page Does Not Contain   Документ завантажується...  10
+
+
+Wait Element Animation
+    [Arguments]  ${locator}
+    Set Test Variable  ${prev_vert_pos}  0
+    Wait Until Keyword Succeeds  20 x  500 ms  Position Should Equals  ${locator}
+
+Position Should Equals
+    [Arguments]  ${locator}
+    ${current_vert_pos}=  Get Vertical Position  ${locator}
+    ${status}=  Run Keyword And Return Status  Should Be Equal  ${prev_vert_pos}  ${current_vert_pos}
+    Set Test Variable  ${prev_vert_pos}  ${current_vert_pos}
+    Should Be True  ${status}
