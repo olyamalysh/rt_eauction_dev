@@ -975,11 +975,17 @@ JQuery Ajax Should Complete
     Click Element  xpath=//select[@id="milestone-status"]
     ${date_paid}=  convert_date_for_date_paid  ${dateMet}
     Wait Element Animation  xpath=//input[@name="Milestone[dateMet]"]
+    Capture Page Screenshot
     Focus  xpath=//input[@name="Milestone[dateMet]"]
+    Capture Page Screenshot
     Clear Element Text	xpath=//input[@name="Milestone[dateMet]"]
+    Capture Page Screenshot
     Input Text  xpath=//input[@name="Milestone[dateMet]"]  ${date_paid}
+    Capture Page Screenshot
     Sleep  3
+    Capture Page Screenshot
     Click Element  xpath=//button[@class="mk-btn mk-btn_accept"][contains(text(),"Завантажити дані")]
+    Capture Page Screenshot
     Wait Until Element Is Not Visible  xpath=//*[contains(@class, "modal-backdrop")]
 
 
