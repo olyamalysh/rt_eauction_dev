@@ -975,6 +975,7 @@ JQuery Ajax Should Complete
     Click Element  xpath=//select[@id="milestone-status"]
     ${date_paid}=  convert_date_for_date_paid  ${dateMet}
     Input Text  xpath=//input[@name="Milestone[dateMet]"]  ${date_paid}
+    Sleep  3
     Click Element  xpath=//button[@class="mk-btn mk-btn_accept"][contains(text(),"Завантажити дані")]
     Wait Until Element Is Not Visible  xpath=//*[contains(@class, "modal-backdrop")]
 
