@@ -35,8 +35,8 @@ ${host}  http://eauction-dev.byustudio.in.ua
     [Arguments]  ${username}
     Click Element  xpath=//*[contains(@href, "/login")]
     Wait Until Element Is Visible  xpath=//button[@name="login-button"]
-    Input Text  xpath=//input[@id="loginformverifycode-username"]  ${USERS.users['${username}'].login}
-    Input Text  xpath=//input[@id="loginformverifycode-password"]  ${USERS.users['${username}'].password}
+    Input Text  xpath=//input[@id="loginform-username"]  ${USERS.users['${username}'].login}
+    Input Text  xpath=//input[@id="loginform-password"]  ${USERS.users['${username}'].password}
     Click Element  xpath=//button[@name="login-button"]
 
 
