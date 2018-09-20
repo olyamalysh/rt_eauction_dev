@@ -130,9 +130,9 @@ def adapted_dictionary(value):
         u'Очікується оплата': u'active.payment',
         u'Договір оплачено. Очікується наказ': u'active.approval',
         u'Період виконання умов продажу (період оскарження)': u'active',
-        u"Приватизація об'єкта завершена.": u'pending.terminated',
-        u"Приватизація об'єкта неуспішна.": u'pending.unsuccessful',
-        u"Приватизація об'єкта завершена": u'terminated',
+        u"Приватизація об’єкта завершена.": u'pending.terminated',
+        u"Приватизація об’єкта неуспішна.": u'pending.unsuccessful',
+        u"Приватизація об’єкта завершена": u'terminated',
         u"Приватизація об’єкта неуспішна": u'unsuccessful'
     }.get(value, value)
 
