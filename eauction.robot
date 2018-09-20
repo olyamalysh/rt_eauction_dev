@@ -975,6 +975,8 @@ JQuery Ajax Should Complete
     Click Element  xpath=//select[@id="milestone-status"]
     ${date_paid}=  convert_date_for_date_paid  ${dateMet}
     Wait Element Animation  xpath=//input[@name="Milestone[dateMet]"]
+    Focus  xpath=//input[@name="Milestone[dateMet]"]
+    Clear Element Text	xpath=//input[@name="Milestone[dateMet]"]
     Input Text  xpath=//input[@name="Milestone[dateMet]"]  ${date_paid}
     Sleep  3
     Click Element  xpath=//button[@class="mk-btn mk-btn_accept"][contains(text(),"Завантажити дані")]
